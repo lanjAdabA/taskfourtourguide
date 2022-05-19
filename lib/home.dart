@@ -30,7 +30,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
             ),
             Padding(padding: EdgeInsets.only(right: 10)),
           ],
-          backgroundColor: Colors.orange[800],
+          backgroundColor: Colors.red,
         ),
         body: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -41,9 +41,12 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
                 children: [
                   Container(
                       height: 478,
-                      decoration: BoxDecoration(
-                          color: Colors.orange[800],
-                          borderRadius: const BorderRadius.only(
+                      decoration: const BoxDecoration(
+                          gradient: LinearGradient(
+                              begin: Alignment.topCenter,
+                              end: Alignment.bottomCenter,
+                              colors: [Colors.red, Colors.yellow]),
+                          borderRadius: BorderRadius.only(
                               bottomLeft: Radius.circular(40),
                               bottomRight: Radius.circular(40))),
                       child: Column(
