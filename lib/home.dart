@@ -1,10 +1,68 @@
+// ignore_for_file: non_constant_identifier_names, duplicate_ignore
+
 import 'package:flutter/material.dart';
 
 import 'cards.dart';
 
-List places = ["place1", "place2", "place3"];
+List<Map<String, dynamic>> popular_list = [
+  {
+    "title": "moirang",
+    "rating": 4,
+    "placesImgs": "img1.jpg",
+  },
+  {
+    "title": "sendra",
+    "rating": 2,
+    "placesImgs": "img2.jpg",
+  },
+  {
+    "title": "loktak",
+    "rating": 3,
+    "placesImgs": "img3.jpg",
+  },
+];
+
+List recommended_list = [
+  {
+    "title": "loktak",
+    "rating": 4,
+    "placesImgs": "img1.jpg",
+  },
+  {
+    "title": "sendra",
+    "rating": 2,
+    "placesImgs": "img2.jpg",
+  },
+  {
+    "title": "moirang",
+    "rating": 3,
+    "placesImgs": "img3.jpg",
+  },
+];
+List costeffective_list = [
+  {
+    "title": "loktak",
+    "rating": 4,
+    "placesImgs": "img1.jpg",
+  },
+  {
+    "title": "sendra",
+    "rating": 2,
+    "placesImgs": "img2.jpg",
+  },
+  {
+    "title": "moirang",
+    "rating": 3,
+    "placesImgs": "img3.jpg",
+  },
+];
+
+/* List places = ["place1", "place2", "place3"];
+List rating = ["rating1", "rating2", "rating3"];
+
 List placesImgs = ["img1", "img2", "img3"];
 
+ */
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key, required this.title}) : super(key: key);
 
@@ -95,32 +153,36 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
                   ),
                   Expanded(
                     child: Padding(
-                      padding: EdgeInsets.all(16),
+                      padding: const EdgeInsets.all(16),
                       child: Container(
+                        padding: const EdgeInsets.symmetric(horizontal: 2),
                         child:
                             TabBarView(controller: _tabController, children: [
                           ListView(
                               scrollDirection: Axis.horizontal,
-                              children: places
-                                  .map((e) => cards(
-                                        title: e,
-                                        images: placesImgs[places.indexOf(e)],
+                              children: popular_list
+                                  .map((e) => Cards(
+                                        title: e['title'],
+                                        rating: e["rating"],
+                                        images: e['placesImgs'],
                                       ))
                                   .toList()),
                           ListView(
                               scrollDirection: Axis.horizontal,
-                              children: places
-                                  .map((e) => cards(
-                                        title: e,
-                                        images: placesImgs[places.indexOf(e)],
+                              children: recommended_list
+                                  .map((e) => Cards(
+                                        title: e["title"],
+                                        rating: e["rating"],
+                                        images: e["placesImgs"],
                                       ))
                                   .toList()),
                           ListView(
                               scrollDirection: Axis.horizontal,
-                              children: places
-                                  .map((e) => cards(
-                                        title: e,
-                                        images: placesImgs[places.indexOf(e)],
+                              children: costeffective_list
+                                  .map((e) => Cards(
+                                        title: e["title"],
+                                        rating: e["rating"],
+                                        images: e["placesImgs"],
                                       ))
                                   .toList()),
 

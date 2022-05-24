@@ -2,18 +2,25 @@ import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 // ignore: camel_case_types, must_be_immutable
-class cards extends StatefulWidget {
+class Cards extends StatefulWidget {
   String title;
   String images;
-  cards({Key? key, required this.title, required this.images})
+
+  final int rating;
+
+  Cards(
+      {Key? key,
+      required this.title,
+      required this.images,
+      required this.rating})
       : super(key: key);
 
   @override
-  State<cards> createState() => _cardsState();
+  State<Cards> createState() => _CardsState();
 }
 
 // ignore: camel_case_types
-class _cardsState extends State<cards> {
+class _CardsState extends State<Cards> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -27,6 +34,7 @@ class _cardsState extends State<cards> {
                 widget.title,
                 style: const TextStyle(color: Colors.white, fontSize: 20),
               ),
+              //   RatingBarIndicator(itemBuilder: ((context, index) => ))
               RatingBar.builder(
                 initialRating: 3,
                 itemSize: 24,
@@ -50,7 +58,7 @@ class _cardsState extends State<cards> {
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(16),
           image: DecorationImage(
-              image: AssetImage('assets/images/' + widget.images + ".jpg"),
+              image: AssetImage('assets/images/' + widget.images),
               fit: BoxFit.cover)),
     );
   }
